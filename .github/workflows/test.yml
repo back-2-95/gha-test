@@ -1,0 +1,28 @@
+on:
+  push:
+    branches:
+      - dev
+      - main
+  workflow_dispatch:
+
+jobs:
+
+  test:
+
+    runs-on: ubuntu-latest
+
+    environment: testing
+    concurrency: testing
+
+    steps:
+
+      - name: Echo TEST_SECRET value
+        run: |
+          echo ${{ secrets.TEST_SECRET }} > test.txt
+          cat test.txt
+
+      - name: Echo NORMAL_VAR value
+        run: echo $NORMAL_VAR
+
+      #- name: Checkout
+      #  uses: actions/checkout@v3
