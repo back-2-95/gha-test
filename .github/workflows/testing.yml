@@ -8,18 +8,20 @@ on:
 jobs:
 
   deploy-testing:
+    name: Deploy to testing
     environment: testing
     concurrency: testing
-    uses: back-2-95/gha-test/.github/workflows/deployment.yml@dev
+    uses: ./.github/workflows/deployment.yml
     with:
       env: testing
       variable: ${{ vars.NORMAL_VAR }}
     secrets: inherit
 
   deploy-production:
+    name: Deploy to production
     environment: production
     concurrency: production
-    uses: back-2-95/gha-test/.github/workflows/deployment.yml@main
+    uses: ./.github/workflows/deployment.yml
     with:
       env: production
       variable: ${{ vars.NORMAL_VAR }}
