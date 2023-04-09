@@ -17,7 +17,9 @@ jobs:
     steps:
 
       - name: Echo TEST_SECRET value
-        run: echo ${{ secrets.TEST_SECRET }}
+        run: |
+          echo ${{ secrets.TEST_SECRET }} > test.txt
+          cat test.txt
 
       - name: Echo NORMAL_VAR value
         run: echo $NORMAL_VAR
