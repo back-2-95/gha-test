@@ -10,7 +10,7 @@ jobs:
   deploy-testing:
     environment: testing
     concurrency: testing
-    uses: ./.github/workflows/deployment.yml
+    uses: back-2-95/gha-test/.github/workflows/deployment.yml
     with:
       env: testing
       variable: ${{ vars.NORMAL_VAR }}
@@ -19,7 +19,7 @@ jobs:
   deploy-production:
     environment: production
     concurrency: production
-    uses: ./.github/workflows/deployment.yml
+    uses: back-2-95/gha-test/.github/workflows/deployment.yml
     with:
       env: production
       variable: ${{ vars.NORMAL_VAR }}
