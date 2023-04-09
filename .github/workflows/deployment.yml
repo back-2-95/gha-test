@@ -1,0 +1,16 @@
+on:
+  workflow_call:
+    inputs:
+      variable:
+        required: true
+        type: string
+
+jobs:
+  deployment:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Echo TEST_SECRET value
+        run: echo ${{ inputs.variable }}

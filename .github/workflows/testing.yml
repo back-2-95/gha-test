@@ -1,0 +1,26 @@
+on:
+  push:
+    branches:
+      - dev
+      - main
+  workflow_dispatch:
+
+jobs:
+
+  deploy-testing:
+    environment: testing
+    concurrency: testing
+    uses: ./.github/workflows/deployment.yml
+    with:
+      env: testing
+      variable: ${{ vars.NORMAL_VAR }}
+    secrets: inherit
+
+  deploy-production:
+    environment: production
+    concurrency: production
+    uses: ./.github/workflows/deployment.yml
+    with:
+      env: production
+      variable: ${{ vars.NORMAL_VAR }}
+    secrets: inherit
