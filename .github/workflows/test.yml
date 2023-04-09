@@ -11,6 +11,9 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    environment: testing
+    concurrency: testing
+
     steps:
 
       - name: Echo TEST_SECRET value
