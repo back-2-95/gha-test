@@ -1,3 +1,5 @@
+name: Deployment
+
 on:
   push:
     branches:
@@ -20,7 +22,6 @@ jobs:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/deployment
         with:
-          env: testing
           variable: ${{ vars.NORMAL_VAR }}
 
   deploy-production:
@@ -36,5 +37,4 @@ jobs:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/deployment
         with:
-          env: production
           variable: ${{ vars.NORMAL_VAR }}
