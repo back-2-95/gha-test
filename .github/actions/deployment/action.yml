@@ -1,0 +1,16 @@
+name: Deployment
+description: Do the deployment
+
+inputs:
+  variable:
+    required: true
+    description: "Diiba"
+
+runs:
+  using: "composite"
+
+  steps:
+
+    - name: Echo TEST_SECRET value
+      shell: sh
+      run: echo ${{ inputs.variable }}

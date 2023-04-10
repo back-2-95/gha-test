@@ -1,0 +1,40 @@
+on:
+  push:
+    branches:
+      - dev
+      - main
+  workflow_dispatch:
+
+jobs:
+
+  deploy-testing:
+
+    if: github.ref_name == 'dev'
+    runs-on: ubuntu-latest
+    name: Deploy to testing
+
+    environment: testing
+    concurrency: testing
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/deployment
+        with:
+          env: testing
+          variable: ${{ vars.NORMAL_VAR }}
+
+  deploy-production:
+
+    if: github.ref_name == 'main'
+    runs-on: ubuntu-latest
+    name: Deploy to production
+
+    environment: production
+    concurrency: production
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/deployment
+        with:
+          env: production
+          variable: ${{ vars.NORMAL_VAR }}
