@@ -21,7 +21,6 @@ jobs:
         with:
           env: testing
           variable: ${{ vars.NORMAL_VAR }}
-        secrets: inherit
 
   deploy-production:
 
@@ -37,4 +36,3 @@ jobs:
         with:
           env: production
           variable: ${{ vars.NORMAL_VAR }}
-        secrets: inherit
