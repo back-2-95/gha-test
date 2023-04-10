@@ -8,21 +8,33 @@ on:
 jobs:
 
   deploy-testing:
+
+    runs-on: ubuntu-latest
     name: Deploy to testing
+
     environment: testing
     concurrency: testing
-    uses: ./.github/workflows/deployment.yml
-    with:
-      env: testing
-      variable: ${{ vars.NORMAL_VAR }}
-    secrets: inherit
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/workflows/deployment.yml
+        with:
+          env: testing
+          variable: ${{ vars.NORMAL_VAR }}
+        secrets: inherit
 
   deploy-production:
+
+    runs-on: ubuntu-latest
     name: Deploy to production
+
     environment: production
     concurrency: production
-    uses: ./.github/workflows/deployment.yml
-    with:
-      env: production
-      variable: ${{ vars.NORMAL_VAR }}
-    secrets: inherit
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/workflows/deployment.yml
+        with:
+          env: production
+          variable: ${{ vars.NORMAL_VAR }}
+        secrets: inherit

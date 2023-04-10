@@ -1,16 +1,15 @@
-on:
-  workflow_call:
-    inputs:
-      variable:
-        required: true
-        type: string
+name: Deployment
+description: Do the deployment
 
-jobs:
-  deployment:
+inputs:
+  variable:
+    required: true
+    type: string
 
-    runs-on: ubuntu-latest
+runs:
+  using: "composite"
 
-    steps:
+  steps:
 
-      - name: Echo TEST_SECRET value
-        run: echo ${{ inputs.variable }}
+    - name: Echo TEST_SECRET value
+      run: echo ${{ inputs.variable }}
