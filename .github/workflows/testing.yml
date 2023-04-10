@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: ./.github/workflows/deployment.yml
+      - uses: ./.github/actions/deployment.yml
         with:
           env: testing
           variable: ${{ vars.NORMAL_VAR }}
@@ -32,7 +32,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: ./.github/workflows/deployment.yml
+      - uses: ./.github/actions/deployment.yml
         with:
           env: production
           variable: ${{ vars.NORMAL_VAR }}
