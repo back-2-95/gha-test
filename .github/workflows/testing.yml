@@ -9,6 +9,7 @@ jobs:
 
   deploy-testing:
 
+    if: github.ref_name == 'dev'
     runs-on: ubuntu-latest
     name: Deploy to testing
 
@@ -24,6 +25,7 @@ jobs:
 
   deploy-production:
 
+    if: github.ref_name == 'main'
     runs-on: ubuntu-latest
     name: Deploy to production
 
