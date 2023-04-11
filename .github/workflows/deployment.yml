@@ -20,7 +20,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: ./.github/actions/deployment
+
+      - name: Run deployment
+        uses: ./.github/actions/deployment
         with:
           variable: ${{ vars.NORMAL_VAR }}
 
@@ -35,6 +37,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: ./.github/actions/deployment
+
+      - name: Run deployment
+        uses: ./.github/actions/deployment
         with:
           variable: ${{ vars.NORMAL_VAR }}
