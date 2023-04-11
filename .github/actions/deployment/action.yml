@@ -11,6 +11,6 @@ runs:
 
   steps:
 
-    - name: Echo TEST_SECRET value
-      shell: sh
+    - name: Echo variable given as input
       run: echo ${{ inputs.variable }}
+      shell: bash
