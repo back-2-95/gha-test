@@ -14,3 +14,7 @@ runs:
     - name: Echo variable given as input
       run: echo ${{ inputs.variable }}
       shell: bash
+
+    - name: List current directory
+      run: ls -lah
+      shell: bash
